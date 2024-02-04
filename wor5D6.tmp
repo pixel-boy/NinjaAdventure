@@ -1,0 +1,281 @@
+[gd_scene load_steps=38 format=3 uid="uid://c7j4hgkdbtapk"]
+
+[ext_resource type="Script" path="res://world.gd" id="1_804hp"]
+[ext_resource type="PackedScene" uid="uid://bbypwb55eieo1" path="res://system/map/map.tscn" id="3_fq6wk"]
+[ext_resource type="Script" path="res://system/camera/camera_grid.gd" id="4_am12t"]
+[ext_resource type="Texture2D" uid="uid://bs4uxpqfesgko" path="res://system/environment/fx/rain.png" id="8_5w8v0"]
+[ext_resource type="Texture2D" uid="uid://b6qbpkjaljvvr" path="res://system/environment/fx/snow.png" id="8_a6yej"]
+[ext_resource type="Texture2D" uid="uid://d0kl1xfdvdsjg" path="res://system/environment/fx/rain_on_floor.png" id="8_necrh"]
+[ext_resource type="Script" path="res://system/music.gd" id="10_4llys"]
+[ext_resource type="Texture2D" uid="uid://c8h0vkd6dugv" path="res://system/environment/fx/cloud.png" id="10_qyq2n"]
+[ext_resource type="Texture2D" uid="uid://dd2kmn7tta5gu" path="res://system/environment/fx/leaf.png" id="11_36wdo"]
+[ext_resource type="Script" path="res://system/environment/fog.gd" id="11_w52t8"]
+[ext_resource type="Texture2D" uid="uid://cpcojki7owcjg" path="res://system/environment/fx/raylight.png" id="15_uyose"]
+[ext_resource type="Shader" path="res://system/shader/shader_moving_texture.gdshader" id="16_fmd6i"]
+[ext_resource type="Texture2D" uid="uid://dxic1avnc53ct" path="res://system/environment/fx/fog.png" id="16_wcll6"]
+[ext_resource type="Script" path="res://system/transition/transition.gd" id="20_5rxny"]
+[ext_resource type="Material" uid="uid://d388iuq2hfgth" path="res://system/color_correction/material.tres" id="28_nkm27"]
+[ext_resource type="Script" path="res://system/color_correction/color_correction.gd" id="29_12dcn"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_6dfye"]
+shader = ExtResource("16_fmd6i")
+shader_parameter/speed = 0.01
+shader_parameter/color = Color(0.92, 0.92, 0.92, 0.356863)
+shader_parameter/alpha = 0.0
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_7vdq6"]
+particles_animation = true
+particles_anim_h_frames = 7
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="Gradient" id="Gradient_bqbuh"]
+offsets = PackedFloat32Array(0, 0.127716, 0.884061, 1)
+colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_frr1n"]
+gradient = SubResource("Gradient_bqbuh")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_dagba"]
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(200, 140, 0)
+angle_min = 1.07288e-05
+angle_max = 1.07288e-05
+direction = Vector3(-0.5, 1, 0)
+spread = 0.0
+initial_velocity_min = 5.0
+initial_velocity_max = 30.0
+gravity = Vector3(0, 0, 0)
+radial_accel_min = -20.0
+radial_accel_max = 20.0
+tangential_accel_min = -10.0
+tangential_accel_max = 10.0
+damping_max = 10.0
+color = Color(0.94902, 0.917647, 0.945098, 1)
+color_ramp = SubResource("GradientTexture1D_frr1n")
+anim_offset_max = 1.0
+sub_emitter_mode = 1
+sub_emitter_frequency = 4.0
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_jwal2"]
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(200, 140, 0)
+direction = Vector3(-0.5, 1, 0)
+spread = 0.0
+initial_velocity_min = 100.0
+initial_velocity_max = 100.0
+gravity = Vector3(0, 0, 0)
+sub_emitter_mode = 1
+sub_emitter_frequency = 4.0
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_33vl3"]
+particles_animation = true
+particles_anim_h_frames = 3
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_dxn4q"]
+particle_flag_disable_z = true
+gravity = Vector3(0, 0, 0)
+anim_speed_min = 1.0
+anim_speed_max = 1.0
+
+[sub_resource type="Gradient" id="Gradient_c2krn"]
+offsets = PackedFloat32Array(0, 0.168325, 0.792691, 1)
+colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 1, 1, 0.988235, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_x6ovm"]
+gradient = SubResource("Gradient_c2krn")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_5wo8h"]
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(200, 160, 1)
+direction = Vector3(1, 1, 0)
+spread = 0.0
+initial_velocity_min = 10.0
+initial_velocity_max = 10.0
+gravity = Vector3(0, 0, 0)
+color = Color(0.745098, 0.101961, 0.203922, 0.231373)
+color_ramp = SubResource("GradientTexture1D_x6ovm")
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_ph2h4"]
+particles_animation = true
+particles_anim_h_frames = 6
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_immpv"]
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(200, 140, 0)
+direction = Vector3(-0.5, 1, 0)
+initial_velocity_max = 30.0
+gravity = Vector3(0, 0, 0)
+anim_speed_min = 1.0
+anim_speed_max = 1.0
+sub_emitter_mode = 1
+sub_emitter_frequency = 4.0
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_2vdrr"]
+blend_mode = 1
+particles_animation = true
+particles_anim_h_frames = 3
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="Gradient" id="Gradient_g6anl"]
+offsets = PackedFloat32Array(0, 0.178477, 0.863757, 1)
+colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 0.679658, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_ypw10"]
+gradient = SubResource("Gradient_g6anl")
+
+[sub_resource type="Curve" id="Curve_0dce0"]
+_data = [Vector2(0, 0.809702), 0.0, 0.828477, 0, 0, Vector2(1, 0.821362), -0.646323, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_5u870"]
+curve = SubResource("Curve_0dce0")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_v4lnj"]
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(160, 120, 1)
+spread = 0.0
+initial_velocity_min = 1.0
+initial_velocity_max = 2.0
+gravity = Vector3(0, 0, 0)
+scale_curve = SubResource("CurveTexture_5u870")
+color = Color(1, 1, 1, 0.152941)
+color_ramp = SubResource("GradientTexture1D_ypw10")
+anim_offset_max = 1.0
+
+[sub_resource type="Gradient" id="Gradient_kshit"]
+offsets = PackedFloat32Array(0, 0.723172, 1)
+colors = PackedColorArray(0, 0, 0, 1, 0.57992, 0.278237, 0.497348, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_gsap2"]
+gradient = SubResource("Gradient_kshit")
+
+[node name="World" type="Node2D"]
+script = ExtResource("1_804hp")
+starting_map = ExtResource("3_fq6wk")
+
+[node name="Fog" type="TextureRect" parent="."]
+unique_name_in_owner = true
+z_index = 10
+material = SubResource("ShaderMaterial_6dfye")
+offset_left = -624.0
+offset_top = -184.0
+offset_right = 336.0
+offset_bottom = 356.0
+texture = ExtResource("16_wcll6")
+stretch_mode = 1
+script = ExtResource("11_w52t8")
+
+[node name="CameraGrid" type="Camera2D" parent="."]
+unique_name_in_owner = true
+zoom = Vector2(4, 4)
+process_callback = 0
+script = ExtResource("4_am12t")
+
+[node name="Snow" type="GPUParticles2D" parent="CameraGrid"]
+unique_name_in_owner = true
+material = SubResource("CanvasItemMaterial_7vdq6")
+position = Vector2(-136, 96)
+emitting = false
+amount = 20
+process_material = SubResource("ParticleProcessMaterial_dagba")
+texture = ExtResource("8_a6yej")
+fixed_fps = 0
+draw_order = 0
+
+[node name="Rain" type="GPUParticles2D" parent="CameraGrid"]
+unique_name_in_owner = true
+position = Vector2(-136, 96)
+emitting = false
+amount = 30
+sub_emitter = NodePath("../RainOnFloor")
+process_material = SubResource("ParticleProcessMaterial_jwal2")
+texture = ExtResource("8_5w8v0")
+fixed_fps = 0
+draw_order = 0
+
+[node name="RainOnFloor" type="GPUParticles2D" parent="CameraGrid"]
+material = SubResource("CanvasItemMaterial_33vl3")
+position = Vector2(-136, 96)
+emitting = false
+amount = 30
+process_material = SubResource("ParticleProcessMaterial_dxn4q")
+texture = ExtResource("8_necrh")
+lifetime = 0.5
+fixed_fps = 0
+draw_order = 0
+
+[node name="Cloud" type="GPUParticles2D" parent="CameraGrid"]
+unique_name_in_owner = true
+z_index = -1
+position = Vector2(-136, 96)
+emitting = false
+amount = 6
+process_material = SubResource("ParticleProcessMaterial_5wo8h")
+texture = ExtResource("10_qyq2n")
+lifetime = 10.0
+
+[node name="Leaf" type="GPUParticles2D" parent="CameraGrid"]
+unique_name_in_owner = true
+material = SubResource("CanvasItemMaterial_ph2h4")
+position = Vector2(-136, 96)
+emitting = false
+amount = 10
+process_material = SubResource("ParticleProcessMaterial_immpv")
+texture = ExtResource("11_36wdo")
+fixed_fps = 0
+draw_order = 0
+
+[node name="Raylight" type="GPUParticles2D" parent="CameraGrid"]
+unique_name_in_owner = true
+z_index = 6
+material = SubResource("CanvasItemMaterial_2vdrr")
+position = Vector2(-136, 96)
+emitting = false
+amount = 10
+process_material = SubResource("ParticleProcessMaterial_v4lnj")
+texture = ExtResource("15_uyose")
+lifetime = 5.0
+speed_scale = 0.5
+
+[node name="Music" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
+autoplay = true
+bus = &"Music"
+script = ExtResource("10_4llys")
+
+[node name="ScreenFxLayer" type="CanvasLayer" parent="."]
+layer = 10
+visible = false
+
+[node name="Transition" type="ColorRect" parent="ScreenFxLayer"]
+unique_name_in_owner = true
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.0784314, 0.105882, 0.105882, 1)
+script = ExtResource("20_5rxny")
+
+[node name="ColorCorrection" type="ColorRect" parent="ScreenFxLayer"]
+unique_name_in_owner = true
+z_index = 3
+material = ExtResource("28_nkm27")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("29_12dcn")
+gradient = SubResource("GradientTexture1D_gsap2")

@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="ResourceDamageTeam" load_steps=2 format=3 uid="uid://b1hex3hlai17n"]
+
+[ext_resource type="Script" path="res://system/damage/resource_damage_team.gd" id="1_ionl7"]
+
+[resource]
+script = ExtResource("1_ionl7")
+ally_team = Array[ExtResource("1_ionl7")]([])
+enemy_team = Array[ExtResource("1_ionl7")]([])
+friendly_fire = false

@@ -1,11 +1,12 @@
-[gd_scene load_steps=3 format=3 uid="uid://bahejxgq2chrj"]
+[gd_scene load_steps=4 format=3 uid="uid://bahejxgq2chrj"]
 
 [ext_resource type="Script" path="res://system/weapon/weapon.gd" id="1_dhxh8"]
+[ext_resource type="Script" path="res://system/damage/damage_area.gd" id="3_0o8xx"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_f5sye"]
-size = Vector2(8, 14)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_h8xia"]
+size = Vector2(12, 10)
 
-[node name="Weapon" type="CharacterBody2D"]
+[node name="Weapon" type="Area2D"]
 collision_layer = 0
 collision_mask = 0
 script = ExtResource("1_dhxh8")
@@ -13,6 +14,11 @@ script = ExtResource("1_dhxh8")
 [node name="Sprite" type="Sprite2D" parent="."]
 rotation = -1.5708
 
-[node name="Shape" type="CollisionShape2D" parent="."]
-position = Vector2(0, 5)
-shape = SubResource("RectangleShape2D_f5sye")
+[node name="DamageArea" type="Area2D" parent="Sprite"]
+rotation = 1.5708
+collision_layer = 0
+monitorable = false
+script = ExtResource("3_0o8xx")
+
+[node name="Shape" type="CollisionShape2D" parent="Sprite/DamageArea"]
+shape = SubResource("RectangleShape2D_h8xia")

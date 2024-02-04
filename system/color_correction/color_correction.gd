@@ -1,4 +1,4 @@
-@icon("../color_correction/icon.png")
+@icon("../color_correction/icon_color_correction.png")
 extends ColorRect
 
 

@@ -58,6 +58,7 @@ move_down={
 
 2d_physics/layer_1="Wall"
 2d_physics/layer_2="Character"
+2d_physics/layer_4="Hitbox"
 2d_physics/layer_5="Player"
 
 [physics]

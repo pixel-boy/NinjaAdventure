@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cy301o6qe48l7"
-path="res://.godot/imported/icon.png-df19368333821dbfcf98934a4ce40d7d.ctex"
+uid="uid://p0m8omloii3b"
+path="res://.godot/imported/icon_teleporter.png-0219eceb9d0947a2ff62662b7f2b4935.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://system/map/icon.png"
-dest_files=["res://.godot/imported/icon.png-df19368333821dbfcf98934a4ce40d7d.ctex"]
+source_file="res://system/teleporter/icon_teleporter.png"
+dest_files=["res://.godot/imported/icon_teleporter.png-0219eceb9d0947a2ff62662b7f2b4935.ctex"]
 
 [params]
 

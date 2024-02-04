@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bhkpy8cscx5g8"
-path="res://.godot/imported/icon.png-bef6800bdde3d2f8c054e3369085b9dd.ctex"
+uid="uid://bnkeqoauns6tg"
+path="res://.godot/imported/icon_hitbox.png-70f1bc82eefb837866ec4fe87ff948d2.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://system/weapon/icon.png"
-dest_files=["res://.godot/imported/icon.png-bef6800bdde3d2f8c054e3369085b9dd.ctex"]
+source_file="res://system/damage/icon_hitbox.png"
+dest_files=["res://.godot/imported/icon_hitbox.png-70f1bc82eefb837866ec4fe87ff948d2.ctex"]
 
 [params]
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://nvd7sdqmm0od"
-path="res://.godot/imported/icon.png-620c1b76ba81a4db5e4735defd5f4664.ctex"
+uid="uid://mq5138bpgc6v"
+path="res://.godot/imported/particle_leaf_pink.png-9937b9eef7eac72f608481baaf5cf8bb.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://system/character/icon.png"
-dest_files=["res://.godot/imported/icon.png-620c1b76ba81a4db5e4735defd5f4664.ctex"]
+source_file="res://content/particle/particle_leaf_pink.png"
+dest_files=["res://.godot/imported/particle_leaf_pink.png-9937b9eef7eac72f608481baaf5cf8bb.ctex"]
 
 [params]
 

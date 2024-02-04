@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="ResourceParticle" load_steps=3 format=3 uid="uid://pd5lt0y7jxun"]
+
+[ext_resource type="Script" path="res://system/particle/resource_particle.gd" id="1_6btpg"]
+[ext_resource type="Texture2D" uid="uid://b24nod8p5n05l" path="res://content/particle/particle_grass.png" id="2_aoejd"]
+
+[resource]
+script = ExtResource("1_6btpg")
+texture = ExtResource("2_aoejd")
+frame_count = 6

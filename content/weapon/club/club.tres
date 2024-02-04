@@ -1,10 +1,18 @@
-[gd_resource type="Resource" script_class="ResourceWeapon" load_steps=4 format=3 uid="uid://uditl1ns5wqe"]
+[gd_resource type="Resource" script_class="ResourceWeapon" load_steps=6 format=3 uid="uid://uditl1ns5wqe"]
 
+[ext_resource type="Script" path="res://system/damage/resource_damage.gd" id="1_bwo10"]
 [ext_resource type="Script" path="res://system/weapon/resource_weapon.gd" id="1_hnv0u"]
 [ext_resource type="Texture2D" uid="uid://dis75asuioxax" path="res://content/weapon/club/sprite.png" id="2_adfqf"]
 [ext_resource type="Texture2D" uid="uid://dcuuywoj0y6ms" path="res://content/weapon/club/in_hand.png" id="3_ogjkf"]
+
+[sub_resource type="Resource" id="Resource_ihx8t"]
+script = ExtResource("1_bwo10")
+amount = 1
+push_force = 10
 
 [resource]
 script = ExtResource("1_hnv0u")
 sprite = ExtResource("2_adfqf")
 sprite_in_hand = ExtResource("3_ogjkf")
+anim_type = 0
+damage = SubResource("Resource_ihx8t")

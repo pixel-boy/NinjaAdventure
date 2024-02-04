@@ -1,6 +1,6 @@
-@icon("../weapon/icon.png")
+@icon("../weapon/icon_weapon.png")
 @tool
-extends CharacterBody2D
+extends Node2D
 class_name Weapon
 
 
@@ -15,9 +15,13 @@ enum State {BACK,ATTACK,PROJECTED,ON_FLOOR}
 			await ready
 		if !resource_weapon:
 			sprite.texture = null
+			damage_area.damage = null
 			return
 		sprite.texture = resource_weapon.sprite_in_hand
+		damage_area.damage = resource_weapon.damage
 		update_weapon()
+@export var team:ResourceDamageTeam
+
 
 var direction:= Vector2.ZERO:
 	set(v):
@@ -30,6 +34,7 @@ var state:State = State.BACK:
 		update_weapon()
 
 @onready var sprite: Sprite2D = $Sprite
+@onready var damage_area: DamageArea = $Sprite/DamageArea
 
 
 func update_weapon():
@@ -42,7 +47,11 @@ func update_weapon():
 			sprite.position = Vector2(10,10)*direction
 			sprite.rotation = direction.angle()-(PI/2)
 		_:
-			rotation = 0
+			sprite.rotation = 0
 			sprite.texture = resource_weapon.sprite
 			sprite.offset = Vector2(-7,-5)*direction
 			show_behind_parent = direction.y >= 0
+
+
+func use_weapon():
+	print("use_weapon")

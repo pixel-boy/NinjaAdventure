@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=3 uid="uid://b6h1jrdj5vsnb"]
+
+[ext_resource type="Texture2D" uid="uid://dwtpv76elqabc" path="res://system/map/map_size_bg.png" id="1_rci6r"]
+[ext_resource type="Script" path="res://system/camera/camera_grid.gd" id="2_3yulo"]
+
+[node name="TestCameraGrid" type="Node2D"]
+
+[node name="ScreenGridRef" type="TextureRect" parent="."]
+modulate = Color(1, 1, 1, 0.360784)
+z_index = -10
+offset_left = -1424.0
+offset_top = -960.0
+offset_right = -27.0
+offset_bottom = 186.0
+scale = Vector2(2, 2)
+texture = ExtResource("1_rci6r")
+stretch_mode = 1
+
+[node name="CameraGrid" type="Camera2D" parent="."]
+zoom = Vector2(4, 4)
+script = ExtResource("2_3yulo")

@@ -1,10 +1,12 @@
+@tool
 extends TextureRect
 
 
-var tween:Tween
-var active := false:
+@export var active := false:
 	set(v):
 		active = v
+		if !is_inside_tree():
+			await ready
 		if tween:
 			tween.kill()
 		tween = create_tween()
@@ -13,3 +15,4 @@ var active := false:
 		else:
 			tween.tween_property(material,"shader_parameter/alpha",0,2)
 
+var tween:Tween

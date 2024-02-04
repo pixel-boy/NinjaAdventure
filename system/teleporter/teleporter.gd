@@ -1,5 +1,5 @@
 @tool
-@icon("../teleporter/icon.png")
+@icon("../teleporter/icon_teleporter.png")
 extends Area2D
 class_name Teleporter
 
