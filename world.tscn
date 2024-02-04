@@ -1,4 +1,4 @@
-[gd_scene load_steps=39 format=3 uid="uid://c7j4hgkdbtapk"]
+[gd_scene load_steps=40 format=3 uid="uid://c7j4hgkdbtapk"]
 
 [ext_resource type="Script" path="res://world.gd" id="1_804hp"]
 [ext_resource type="PackedScene" uid="uid://bbypwb55eieo1" path="res://system/map/map.tscn" id="3_fq6wk"]
@@ -12,6 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://dd2kmn7tta5gu" path="res://system/environment/fx/leaf.png" id="11_36wdo"]
 [ext_resource type="Script" path="res://system/environment/fog.gd" id="11_w52t8"]
 [ext_resource type="Texture2D" uid="uid://cpcojki7owcjg" path="res://system/environment/fx/raylight.png" id="15_uyose"]
+[ext_resource type="PackedScene" uid="uid://ck8bsyolnkr5h" path="res://system/ui/player_ui.tscn" id="15_wger8"]
 [ext_resource type="Shader" path="res://system/shader/shader_moving_texture.gdshader" id="16_fmd6i"]
 [ext_resource type="Texture2D" uid="uid://dxic1avnc53ct" path="res://system/environment/fx/fog.png" id="16_wcll6"]
 [ext_resource type="Script" path="res://system/transition/transition.gd" id="20_5rxny"]
@@ -253,6 +254,13 @@ autoplay = true
 bus = &"Music"
 script = ExtResource("10_4llys")
 
+[node name="Hud" type="CanvasLayer" parent="."]
+scale = Vector2(4, 4)
+transform = Transform2D(4, 0, 0, 4, 0, 0)
+
+[node name="PlayerUi" parent="Hud" instance=ExtResource("15_wger8")]
+unique_name_in_owner = true
+
 [node name="ScreenFxLayer" type="CanvasLayer" parent="."]
 layer = 10
 visible = false
@@ -276,5 +284,6 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 script = ExtResource("29_12dcn")
 gradient = SubResource("GradientTexture1D_gsap2")

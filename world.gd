@@ -20,6 +20,7 @@ var map:Map
 @onready var color_correction: ColorRect = %ColorCorrection
 @onready var camera_grid: CameraGrid = %CameraGrid
 @onready var pivot: Node2D = %Pivot
+@onready var player_ui: Control = %PlayerUi
 
 
 func _ready():
@@ -51,6 +52,7 @@ func generate_player():
 		player.behavior = player.Behavior.PLAYER
 		player.teleported.connect(on_player_teleported)
 		player.resource_weapon = stating_weapon
+		player_ui.resource_life = player.stat.life
 
 
 func on_player_teleported():

@@ -1,17 +1,16 @@
-[gd_resource type="ShaderMaterial" load_steps=5 format=3 uid="uid://d388iuq2hfgth"]
+[gd_resource type="ShaderMaterial" load_steps=4 format=3 uid="uid://d388iuq2hfgth"]
 
 [ext_resource type="Shader" path="res://system/color_correction/shader_color_correction.gdshader" id="1_pmcgq"]
-[ext_resource type="Texture2D" uid="uid://cr6nh2y2hc4gk" path="res://system/color_correction/gradient_neutral.tres" id="2_fq4xd"]
 
-[sub_resource type="Gradient" id="Gradient_20dyd"]
-offsets = PackedFloat32Array(0, 0.655597, 1)
-colors = PackedColorArray(0, 0, 0, 1, 1, 0.467741, 0.440331, 1, 1, 1, 1, 1)
+[sub_resource type="Gradient" id="Gradient_kshit"]
+offsets = PackedFloat32Array(0, 0.723172, 1)
+colors = PackedColorArray(0, 0, 0, 1, 0.57992, 0.278237, 0.497348, 1, 1, 1, 1, 1)
 
-[sub_resource type="GradientTexture1D" id="GradientTexture1D_donj2"]
-gradient = SubResource("Gradient_20dyd")
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_gsap2"]
+gradient = SubResource("Gradient_kshit")
 
 [resource]
 shader = ExtResource("1_pmcgq")
-shader_parameter/amount = 1.0
-shader_parameter/old_gradient = ExtResource("2_fq4xd")
-shader_parameter/gradient = SubResource("GradientTexture1D_donj2")
+shader_parameter/amount = 0.0
+shader_parameter/old_gradient = SubResource("GradientTexture1D_gsap2")
+shader_parameter/gradient = SubResource("GradientTexture1D_gsap2")
