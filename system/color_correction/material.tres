@@ -1,0 +1,15 @@
+[gd_resource type="ShaderMaterial" load_steps=5 format=3 uid="uid://d388iuq2hfgth"]
+
+[ext_resource type="Shader" path="res://system/color_correction/shader_color_correction.gdshader" id="1_pmcgq"]
+[ext_resource type="Texture2D" uid="uid://bdvl5xcum1mtt" path="res://content/environment/swamp/gradient.tres" id="2_ug3pg"]
+
+[sub_resource type="Gradient" id="Gradient_d0vx6"]
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_bvq5t"]
+gradient = SubResource("Gradient_d0vx6")
+
+[resource]
+shader = ExtResource("1_pmcgq")
+shader_parameter/amount = 1.0
+shader_parameter/old_gradient = SubResource("GradientTexture1D_bvq5t")
+shader_parameter/gradient = ExtResource("2_ug3pg")

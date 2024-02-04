@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="ResourceCharacter" load_steps=4 format=3 uid="uid://b7466sr0n7xh5"]
+
+[ext_resource type="Texture2D" uid="uid://dhndax7skneel" path="res://content/character/blue_ninja/faceset.png" id="1_od1ei"]
+[ext_resource type="Script" path="res://system/character/resource_character.gd" id="2_7fqa2"]
+[ext_resource type="Texture2D" uid="uid://bgq71o8vbg4uy" path="res://content/character/blue_ninja/blue_ninja.png" id="3_fn3e4"]
+
+[resource]
+script = ExtResource("2_7fqa2")
+sprite = ExtResource("3_fn3e4")
+faceset = ExtResource("1_od1ei")

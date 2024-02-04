@@ -1,0 +1,31 @@
+[gd_scene load_steps=6 format=3 uid="uid://skrlnoimlhsv"]
+
+[ext_resource type="Script" path="res://system/character/character.gd" id="1_rg7jw"]
+[ext_resource type="Texture2D" uid="uid://btryd5g3oajow" path="res://system/character/Shadow.png" id="3_dpnn8"]
+[ext_resource type="Script" path="res://system/character/character_sprite.gd" id="4_tfd8n"]
+[ext_resource type="PackedScene" uid="uid://bahejxgq2chrj" path="res://system/weapon/weapon.tscn" id="6_535qp"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_k42ji"]
+radius = 4.03113
+
+[node name="Character" type="CharacterBody2D"]
+collision_layer = 18
+collision_mask = 3
+motion_mode = 1
+script = ExtResource("1_rg7jw")
+
+[node name="Shadow" type="Sprite2D" parent="."]
+position = Vector2(0, 7)
+texture = ExtResource("3_dpnn8")
+script = ExtResource("4_tfd8n")
+
+[node name="Sprite" type="Sprite2D" parent="."]
+hframes = 4
+vframes = 7
+script = ExtResource("4_tfd8n")
+
+[node name="Shape" type="CollisionShape2D" parent="."]
+position = Vector2(0, 7.5)
+shape = SubResource("CircleShape2D_k42ji")
+
+[node name="Weapon" parent="." instance=ExtResource("6_535qp")]
