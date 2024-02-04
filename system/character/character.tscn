@@ -12,7 +12,7 @@
 [ext_resource type="Script" path="res://system/character/life_bar.gd" id="8_nt37x"]
 [ext_resource type="Script" path="res://system/damage/hitbox.gd" id="10_5xome"]
 [ext_resource type="Script" path="res://system/damage/resource_damage_team.gd" id="11_h1nyt"]
-[ext_resource type="Material" uid="uid://cbc0e23kmqwml" path="res://content/particle/particle_process_explosion.tres" id="13_ftuur"]
+[ext_resource type="Material" uid="uid://cbc0e23kmqwml" path="res://system/particle/particle_process_explosion.tres" id="13_ftuur"]
 [ext_resource type="Script" path="res://system/particle/particle.gd" id="14_4owa3"]
 [ext_resource type="Texture2D" uid="uid://mq5138bpgc6v" path="res://content/particle/particle_leaf_pink.png" id="14_4rihq"]
 [ext_resource type="Resource" uid="uid://dn4insrhu8kmh" path="res://content/particle/particle_leaf_pink.tres" id="16_pwjg3"]

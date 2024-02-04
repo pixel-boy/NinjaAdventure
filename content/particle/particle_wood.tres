@@ -6,4 +6,5 @@
 [resource]
 script = ExtResource("1_mtbbx")
 texture = ExtResource("2_of065")
-frame_count = 6
+frame_h = 6
+frame_v = 1

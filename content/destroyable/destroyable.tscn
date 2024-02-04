@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://ww3ylghfa60s" path="res://content/destroyable/crate.png" id="2_50qg0"]
 [ext_resource type="Script" path="res://system/damage/hitbox.gd" id="3_jt54f"]
 [ext_resource type="Texture2D" uid="uid://dgbkuuwc1j8km" path="res://content/particle/particle_rock.png" id="4_af1pe"]
-[ext_resource type="Material" uid="uid://cbc0e23kmqwml" path="res://content/particle/particle_process_explosion.tres" id="4_i466n"]
+[ext_resource type="Material" uid="uid://cbc0e23kmqwml" path="res://system/particle/particle_process_explosion.tres" id="4_i466n"]
 [ext_resource type="Script" path="res://system/particle/particle.gd" id="5_tljad"]
 [ext_resource type="Resource" uid="uid://h31w51nsttnc" path="res://content/particle/particle_rock.tres" id="6_ebru0"]
 

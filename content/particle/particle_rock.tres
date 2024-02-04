@@ -6,4 +6,5 @@
 [resource]
 script = ExtResource("1_bmu7o")
 texture = ExtResource("2_ufyye")
-frame_count = 5
+frame_h = 5
+frame_v = 1
