@@ -1,4 +1,4 @@
-[gd_scene load_steps=53 format=3 uid="uid://c7j4hgkdbtapk"]
+[gd_scene load_steps=56 format=3 uid="uid://c7j4hgkdbtapk"]
 
 [ext_resource type="Script" path="res://world.gd" id="1_804hp"]
 [ext_resource type="PackedScene" uid="uid://skrlnoimlhsv" path="res://system/character/character.tscn" id="1_n5bjh"]
@@ -36,7 +36,7 @@ size = Vector2(16, 16)
 shader = ExtResource("16_fmd6i")
 shader_parameter/speed = 0.01
 shader_parameter/color = Color(0.92, 0.92, 0.92, 0.356863)
-shader_parameter/alpha = 1.0
+shader_parameter/alpha = 0.0
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_7vdq6"]
 particles_animation = true
@@ -176,6 +176,18 @@ script = ExtResource("13_0yt6n")
 music = ExtResource("5_ylkjn")
 meteo_list = Array[int]([3, 5])
 
+[sub_resource type="Gradient" id="Gradient_irurh"]
+offsets = PackedFloat32Array(0, 0.480183, 0.708493, 0.854612, 0.959635)
+colors = PackedColorArray(0.0683825, 0.0683825, 0.0683825, 1, 0.27, 0.243675, 0.2349, 1, 0.702626, 0.397339, 0.44282, 1, 0.749846, 0.560037, 0.484652, 1, 0.81, 0.72873, 0.6966, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_orh3u"]
+gradient = SubResource("Gradient_irurh")
+
+[sub_resource type="Resource" id="Resource_rxcof"]
+script = ExtResource("13_0yt6n")
+color_gradient = SubResource("GradientTexture1D_orh3u")
+meteo_list = Array[int]([5])
+
 [sub_resource type="Gradient" id="Gradient_kshit"]
 offsets = PackedFloat32Array(0, 0.723172, 1)
 colors = PackedColorArray(0, 0, 0, 1, 0.57992, 0.278237, 0.497348, 1, 1, 1, 1, 1)
@@ -264,9 +276,9 @@ resource_character = ExtResource("8_80imf")
 unique_name_in_owner = true
 z_index = 10
 material = SubResource("ShaderMaterial_6dfye")
-offset_left = -458.0
+offset_left = -456.0
 offset_top = -250.0
-offset_right = 502.0
+offset_right = 504.0
 offset_bottom = 290.0
 texture = ExtResource("16_wcll6")
 stretch_mode = 1
@@ -377,13 +389,18 @@ shape = SubResource("RectangleShape2D_1eiuu")
 script = ExtResource("7_361cm")
 resource_environment = SubResource("Resource_uqx2g")
 
+[node name="EnvironmentShape4" type="CollisionShape2D" parent="EnvironmentArea"]
+position = Vector2(24, 720)
+shape = SubResource("RectangleShape2D_1eiuu")
+script = ExtResource("7_361cm")
+resource_environment = SubResource("Resource_rxcof")
+
 [node name="FadeLayer" type="CanvasLayer" parent="."]
 layer = 10
 visible = false
 
 [node name="Transition" type="ColorRect" parent="FadeLayer"]
 unique_name_in_owner = true
-visible = false
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0

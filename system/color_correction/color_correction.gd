@@ -15,7 +15,7 @@ const NEUTRAL_GRADIENT = preload("../color_correction/gradient_neutral.tres")
 		material.set_shader_parameter("old_gradient",material.get_shader_parameter("gradient"))
 		material.set_shader_parameter("gradient",gradient)
 		material.set_shader_parameter("amount",0.0)
-		tween.tween_property(material,"shader_parameter/amount",1.0,1)
+		tween.tween_property(material,"shader_parameter/amount",1.0,0.5)
 
 
 func _ready() -> void:
