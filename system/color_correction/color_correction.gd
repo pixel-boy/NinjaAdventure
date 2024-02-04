@@ -1,5 +1,7 @@
+@tool
 @icon("../color_correction/icon_color_correction.png")
 extends ColorRect
+class_name ColorCorrection
 
 
 const NEUTRAL_GRADIENT = preload("../color_correction/gradient_neutral.tres")
@@ -19,5 +21,6 @@ const NEUTRAL_GRADIENT = preload("../color_correction/gradient_neutral.tres")
 
 
 func _ready() -> void:
+	mouse_filter = Control.MOUSE_FILTER_IGNORE
 	material = preload("../color_correction/material.tres")
 	gradient = gradient
