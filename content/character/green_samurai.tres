@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="ResourceCharacter" load_steps=3 format=3 uid="uid://dwd30uniower0"]
+
+[ext_resource type="Script" path="res://system/character/resource_character.gd" id="1_wrvx0"]
+[ext_resource type="Texture2D" uid="uid://burgyksamdgfl" path="res://content/character/green_samurai.png" id="2_4n1fi"]
+
+[resource]
+script = ExtResource("1_wrvx0")
+sprite = ExtResource("2_4n1fi")

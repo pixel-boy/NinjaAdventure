@@ -229,11 +229,13 @@ lifetime = 10.0
 
 [node name="Leaf" type="GPUParticles2D" parent="CameraGrid"]
 unique_name_in_owner = true
+z_index = 3
 material = SubResource("CanvasItemMaterial_ph2h4")
 emitting = false
 amount = 10
 process_material = SubResource("ParticleProcessMaterial_immpv")
 texture = ExtResource("11_36wdo")
+lifetime = 3.0
 fixed_fps = 0
 draw_order = 0
 

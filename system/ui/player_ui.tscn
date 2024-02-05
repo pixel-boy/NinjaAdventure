@@ -1,10 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://ck8bsyolnkr5h"]
+[gd_scene load_steps=4 format=3 uid="uid://ck8bsyolnkr5h"]
 
 [ext_resource type="Script" path="res://system/ui/player_ui.gd" id="1_ky034"]
 [ext_resource type="Script" path="res://system/ui/receptacle_bar/receptacle_bar.gd" id="2_63s4t"]
 [ext_resource type="Texture2D" uid="uid://dy3wbh3kmrlpc" path="res://content/ui/heart.png" id="3_ef262"]
-[ext_resource type="Texture2D" uid="uid://bpnvorr8hhm8p" path="res://content/ui/heart_2.png" id="4_ffmk5"]
-[ext_resource type="Texture2D" uid="uid://pc13m68xga3m" path="res://content/ui/heart_3.png" id="5_cr401"]
 
 [node name="PlayerUi" type="Control"]
 layout_mode = 3
@@ -15,44 +13,14 @@ script = ExtResource("1_ky034")
 
 [node name="ReceptacleBar" type="Control" parent="."]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(96, 16)
+custom_minimum_size = Vector2(48, 16)
 layout_mode = 2
 anchors_preset = 0
 offset_left = 3.0
 offset_top = 3.0
-offset_right = 67.0
+offset_right = 51.0
 offset_bottom = 19.0
 script = ExtResource("2_63s4t")
-max_life = 24
-life = 4
+max_life = 12
+life = 12
 texture = ExtResource("3_ef262")
-
-[node name="ReceptacleBar2" type="Control" parent="."]
-unique_name_in_owner = true
-custom_minimum_size = Vector2(48, 16)
-layout_mode = 2
-anchors_preset = 0
-offset_left = 3.0
-offset_top = 24.0
-offset_right = 99.0
-offset_bottom = 40.0
-script = ExtResource("2_63s4t")
-max_life = 9
-life = 7
-texture = ExtResource("4_ffmk5")
-receptacle_size = 3
-
-[node name="ReceptacleBar3" type="Control" parent="."]
-unique_name_in_owner = true
-custom_minimum_size = Vector2(48, 16)
-layout_mode = 2
-anchors_preset = 0
-offset_left = 3.0
-offset_top = 48.0
-offset_right = 96.0
-offset_bottom = 64.0
-script = ExtResource("2_63s4t")
-max_life = 8
-life = 0
-texture = ExtResource("5_cr401")
-receptacle_size = 3

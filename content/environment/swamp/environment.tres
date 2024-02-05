@@ -8,4 +8,4 @@
 script = ExtResource("3_jvjye")
 color_gradient = ExtResource("1_vmb5g")
 music = ExtResource("2_vo5nb")
-meteo_list = Array[int]([0, 2])
+meteo_list = Array[int]([0, 2, 4])

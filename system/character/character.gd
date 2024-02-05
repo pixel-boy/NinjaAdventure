@@ -4,16 +4,17 @@ extends CharacterBody2D
 class_name Character
 
 
+const PLAYER_MASK := 5
 signal teleported
 
 enum Behavior{PLAYER,NPC,ENEMY}
 enum State {IDLE,MOVING,ATTACK,JUMP,HIT,DEAD,ITEM,ABILITY,ABILITY_2}
 
-const SPEED := 90
 const ACCELERATION := 10
 const DECCELERATION := 10
 
 
+@export var speed := 80
 @export var resource_character:ResourceCharacter:
 	set(v):
 		resource_character = v
@@ -47,6 +48,7 @@ const DECCELERATION := 10
 		if !is_inside_tree():
 			await ready
 		weapon.team = team
+@export var path_to_follow:Path2D
 
 var cinematic := false
 var direction:= Vector2.RIGHT:
@@ -62,6 +64,8 @@ var state:State = State.IDLE:
 			sprite.anim = CharacterSprite.Anim.keys().find(key)
 var just_teleported := false
 var push_velocity := Vector2.ZERO
+var path_point_id := 0
+var path_direction := 1
 
 @onready var sprite: Sprite2D = $Sprite
 @onready var weapon: Weapon = $Weapon
@@ -81,23 +85,40 @@ func _ready() -> void:
 	hitbox.damage_received.connect(take_damage)
 	match behavior:
 		Behavior.PLAYER:
+			life_bar.visible = false
 			team = load("res://content/team/player_team.tres")
+			set_collision_layer_value(PLAYER_MASK,true)
 		Behavior.ENEMY:
 			team = load("res://content/team/enemy_team.tres")
 		Behavior.NPC:
+			life_bar.visible = false
 			team = load("res://content/team/neutral_team.tres")
 
 
 func _physics_process(delta: float) -> void:
 	if Engine.is_editor_hint():
 		return
-		
 	var move_vector:Vector2
 	match behavior:
 		Behavior.PLAYER:
 			move_vector = Input.get_vector("move_left","move_right","move_up","move_down")
 		_:
-			pass
+			if path_to_follow:
+				var point_position = path_to_follow.curve.get_point_position(path_point_id)
+				var target_pos = point_position+path_to_follow.position
+				if global_position.distance_to(target_pos) > 5:
+					move_vector = global_position.direction_to(target_pos)
+				else:
+					if path_point_id == path_to_follow.curve.point_count-1 or path_point_id == 0:
+						sleep()
+						state = State.IDLE
+						await get_tree().create_timer(1.0).timeout
+						awake()
+						if path_point_id == 0:
+							path_direction = 1
+						else:
+							path_direction = -1
+					path_point_id = path_point_id+path_direction
 	if cinematic:
 		pass
 	else:
@@ -108,7 +129,7 @@ func _physics_process(delta: float) -> void:
 					return
 				velocity = velocity.move_toward(Vector2.ZERO,DECCELERATION)
 			State.MOVING:
-				velocity = velocity.move_toward(move_vector*SPEED,ACCELERATION)
+				velocity = velocity.move_toward(move_vector*speed,ACCELERATION)
 				if move_vector.length():
 					direction = move_vector
 				if !move_vector.length():
@@ -130,7 +151,7 @@ func teleport(to_teleporter:Teleporter,teleport_offset:=Vector2.ZERO):
 	move_and_collide(teleport_offset)
 	direction = to_teleporter.direction
 	cinematic = true
-	velocity = direction*SPEED
+	velocity = direction*speed
 	teleported.emit()
 	await get_tree().create_timer(0.05).timeout
 	just_teleported = false
@@ -172,3 +193,10 @@ func shake(intensity := 2.0,time := 0.1):
 func on_killed():
 	state = State.DEAD
 	life_bar.visible = false
+
+
+func sleep():
+	set_physics_process(false)
+
+func awake():
+	set_physics_process(true)

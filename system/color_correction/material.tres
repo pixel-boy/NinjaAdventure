@@ -11,6 +11,6 @@ gradient = SubResource("Gradient_kshit")
 
 [resource]
 shader = ExtResource("1_pmcgq")
-shader_parameter/amount = 0.0
+shader_parameter/amount = 1.0
 shader_parameter/old_gradient = SubResource("GradientTexture1D_gsap2")
 shader_parameter/gradient = SubResource("GradientTexture1D_gsap2")
