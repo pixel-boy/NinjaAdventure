@@ -23,6 +23,14 @@ window/size/viewport_height=720
 window/stretch/mode="viewport"
 window/vsync/vsync_mode=0
 
+[file_customization]
+
+folder_colors={
+"res://content/": "green",
+"res://game_system/": "pink",
+"res://system/": "blue"
+}
+
 [input]
 
 move_left={

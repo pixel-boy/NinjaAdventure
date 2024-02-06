@@ -1,0 +1,3 @@
+[gd_scene format=3 uid="uid://cdg15v0j6ssn6"]
+
+[node name="BehaviorFollowPath" type="Node2D"]

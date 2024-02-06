@@ -1,13 +1,12 @@
-[gd_scene load_steps=37 format=3 uid="uid://bbypwb55eieo1"]
+[gd_scene load_steps=32 format=3 uid="uid://bbypwb55eieo1"]
 
 [ext_resource type="TileSet" uid="uid://tir0rfjtiwma" path="res://content/map/tileset.tres" id="1_3llky"]
 [ext_resource type="Script" path="res://system/map/map.gd" id="2_qierh"]
 [ext_resource type="Script" path="res://system/teleporter/teleporter.gd" id="3_238pf"]
 [ext_resource type="Texture2D" uid="uid://dwtpv76elqabc" path="res://system/map/map_size_bg.png" id="3_us88t"]
-[ext_resource type="PackedScene" uid="uid://skrlnoimlhsv" path="res://game_system/character/player.tscn" id="4_pjfpd"]
+[ext_resource type="PackedScene" uid="uid://skrlnoimlhsv" path="res://system/character/character.tscn" id="4_pjfpd"]
 [ext_resource type="Script" path="res://system/behavior/behavior_follow_path.gd" id="6_1j1ht"]
-[ext_resource type="Resource" uid="uid://dwd30uniower0" path="res://content/character/green_samurai/green_samurai.tres" id="6_f0b8r"]
-[ext_resource type="Resource" uid="uid://xjlbmbimxaaq" path="res://content/team/npc_team.tres" id="6_pgpgv"]
+[ext_resource type="Resource" uid="uid://dwd30uniower0" path="res://content/character/green_samurai.tres" id="6_f0b8r"]
 [ext_resource type="Resource" uid="uid://b7sebac5l8oth" path="res://content/character/blue_samurai/blue_samurai.tres" id="6_yyrep"]
 [ext_resource type="PackedScene" uid="uid://b6vodxc0miclw" path="res://content/destroyable/destroyable.tscn" id="7_1pmgw"]
 [ext_resource type="Resource" uid="uid://bsu2jvnnc8m4" path="res://content/character/boy/boy.tres" id="7_7hq1b"]
@@ -18,15 +17,11 @@
 [ext_resource type="Script" path="res://system/environment/environment_shape.gd" id="9_a65pj"]
 [ext_resource type="Script" path="res://system/environment/environment_area.gd" id="9_chgur"]
 [ext_resource type="Resource" uid="uid://bpq4a7q7ui2cr" path="res://content/destroyable/grass.tres" id="10_66tyb"]
-[ext_resource type="Resource" uid="uid://b1hex3hlai17n" path="res://content/team/enemy_team.tres" id="10_g3rn5"]
 [ext_resource type="Resource" uid="uid://bx3bdtejr87up" path="res://content/environment/swamp/environment.tres" id="10_nhgn3"]
 [ext_resource type="Resource" uid="uid://dkwnklyceey24" path="res://content/environment/autumn/environment.tres" id="11_4c3rb"]
-[ext_resource type="PackedScene" uid="uid://lwwiccut3p46" path="res://content/behavior/behavior_enemy.tscn" id="13_117lw"]
 [ext_resource type="Script" path="res://system/spawn/spawn_point.gd" id="13_cbwsi"]
 [ext_resource type="Script" path="res://system/environment/resource_environment.gd" id="13_hwiib"]
-[ext_resource type="Resource" uid="uid://dgvyssgjo6c1c" path="res://content/character/pig/pig.tres" id="13_li34f"]
 [ext_resource type="AudioStream" uid="uid://bhgtfsf15w1vr" path="res://content/music/theme_plain.ogg" id="16_t1ocw"]
-[ext_resource type="PackedScene" uid="uid://c02qfp6h5ud5a" path="res://game_system/character/animal.tscn" id="25_mi8jm"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_asgrc"]
 size = Vector2(16, 16)
@@ -128,7 +123,7 @@ curve = SubResource("Curve2D_hplr6")
 position = Vector2(80, -32)
 speed = 30
 resource_character = ExtResource("6_yyrep")
-team = ExtResource("6_pgpgv")
+behavior = 2
 
 [node name="BehaviorFollowPath" type="Node2D" parent="BlueSamurai" node_paths=PackedStringArray("path")]
 script = ExtResource("6_1j1ht")
@@ -137,49 +132,36 @@ wait_time = 1.0
 wait_chance = 20
 
 [node name="GreenSamurai" parent="." instance=ExtResource("4_pjfpd")]
-position = Vector2(88, -136)
-speed = 35
+position = Vector2(-312, -160)
+speed = 30
 resource_character = ExtResource("6_f0b8r")
 resource_weapon = ExtResource("7_t66jq")
-team = ExtResource("10_g3rn5")
-
-[node name="BehaviorEnemy" parent="GreenSamurai" instance=ExtResource("13_117lw")]
-position = Vector2(-120, 320)
+behavior = 2
 
 [node name="GreenSamurai2" parent="." instance=ExtResource("4_pjfpd")]
-position = Vector2(-32, 184)
-speed = 35
+position = Vector2(-360, -216)
+speed = 30
 resource_character = ExtResource("6_f0b8r")
 resource_weapon = ExtResource("7_t66jq")
-team = ExtResource("10_g3rn5")
 
-[node name="BehaviorEnemy" parent="GreenSamurai2" instance=ExtResource("13_117lw")]
+[node name="GreenSamurai3" parent="." instance=ExtResource("4_pjfpd")]
+position = Vector2(-112, -8)
+speed = 30
+resource_character = ExtResource("6_f0b8r")
+resource_weapon = ExtResource("7_t66jq")
+
+[node name="BehaviorFollow" type="Node2D" parent="GreenSamurai3" node_paths=PackedStringArray("target")]
+script = ExtResource("9_a2cro")
+target = NodePath("../../BlueSamurai")
 
 [node name="NpcPath2" type="Path2D" parent="."]
 position = Vector2(72, -32)
 curve = SubResource("Curve2D_0q788")
 
-[node name="Pig" parent="." instance=ExtResource("25_mi8jm")]
-position = Vector2(88, -16)
-resource_animal = ExtResource("13_li34f")
-
-[node name="BehaviorFollow" type="Node2D" parent="Pig" node_paths=PackedStringArray("target")]
-script = ExtResource("9_a2cro")
-target = NodePath("../../BlueSamurai")
-
-[node name="Pig2" parent="." instance=ExtResource("25_mi8jm")]
-position = Vector2(112, -8)
-resource_animal = ExtResource("13_li34f")
-
-[node name="BehaviorFollow" type="Node2D" parent="Pig2" node_paths=PackedStringArray("target")]
-script = ExtResource("9_a2cro")
-target = NodePath("../../Pig")
-
 [node name="Boy" parent="." instance=ExtResource("4_pjfpd")]
 position = Vector2(152, 24)
 speed = 50
 resource_character = ExtResource("7_7hq1b")
-team = ExtResource("6_pgpgv")
 
 [node name="BehaviorFollowPath2" type="Node2D" parent="Boy" node_paths=PackedStringArray("path")]
 script = ExtResource("6_1j1ht")
@@ -191,146 +173,182 @@ wait_chance = 20
 
 [node name="Crate" parent="." instance=ExtResource("7_1pmgw")]
 position = Vector2(104, -24)
+collision_mask = 0
 destroyable = ExtResource("8_opfg5")
 
 [node name="Pot" parent="." instance=ExtResource("7_1pmgw")]
 position = Vector2(88, 40)
+collision_mask = 0
 destroyable = ExtResource("9_1iatm")
 
 [node name="Pot2" parent="." instance=ExtResource("7_1pmgw")]
 position = Vector2(-72, -24)
+collision_mask = 0
 destroyable = ExtResource("9_1iatm")
 
 [node name="Crate2" parent="." instance=ExtResource("7_1pmgw")]
 position = Vector2(-56, -24)
+collision_mask = 0
 destroyable = ExtResource("8_opfg5")
 
 [node name="Grass" parent="." instance=ExtResource("7_1pmgw")]
 position = Vector2(8, 72)
+collision_mask = 0
 destroyable = ExtResource("10_66tyb")
 
 [node name="Grass2" parent="." instance=ExtResource("7_1pmgw")]
 position = Vector2(24, 72)
+collision_mask = 0
 destroyable = ExtResource("10_66tyb")
 
 [node name="Grass3" parent="." instance=ExtResource("7_1pmgw")]
 position = Vector2(8, 24)
+collision_mask = 0
 destroyable = ExtResource("10_66tyb")
 
 [node name="Grass4" parent="." instance=ExtResource("7_1pmgw")]
 position = Vector2(-56, 56)
+collision_mask = 0
 destroyable = ExtResource("10_66tyb")
 
 [node name="Grass26" parent="." instance=ExtResource("7_1pmgw")]
 position = Vector2(8, 744)
+collision_mask = 0
 destroyable = ExtResource("10_66tyb")
 
 [node name="Grass27" parent="." instance=ExtResource("7_1pmgw")]
 position = Vector2(-8, 744)
+collision_mask = 0
 destroyable = ExtResource("10_66tyb")
 
 [node name="Grass28" parent="." instance=ExtResource("7_1pmgw")]
 position = Vector2(-8, 728)
+collision_mask = 0
 destroyable = ExtResource("10_66tyb")
 
 [node name="Grass29" parent="." instance=ExtResource("7_1pmgw")]
 position = Vector2(-24, 728)
+collision_mask = 0
 destroyable = ExtResource("10_66tyb")
 
 [node name="Grass30" parent="." instance=ExtResource("7_1pmgw")]
 position = Vector2(8, 680)
+collision_mask = 0
 destroyable = ExtResource("10_66tyb")
 
 [node name="Grass31" parent="." instance=ExtResource("7_1pmgw")]
 position = Vector2(8, 696)
+collision_mask = 0
 destroyable = ExtResource("10_66tyb")
 
 [node name="Grass32" parent="." instance=ExtResource("7_1pmgw")]
 position = Vector2(-8, 696)
+collision_mask = 0
 destroyable = ExtResource("10_66tyb")
 
 [node name="Grass9" parent="." instance=ExtResource("7_1pmgw")]
 position = Vector2(-72, 56)
+collision_mask = 0
 destroyable = ExtResource("10_66tyb")
 
 [node name="Grass10" parent="." instance=ExtResource("7_1pmgw")]
 position = Vector2(-72, 40)
+collision_mask = 0
 destroyable = ExtResource("10_66tyb")
 
 [node name="Grass14" parent="." instance=ExtResource("7_1pmgw")]
 position = Vector2(-200, 24)
+collision_mask = 0
 destroyable = ExtResource("10_66tyb")
 
 [node name="Grass13" parent="." instance=ExtResource("7_1pmgw")]
 position = Vector2(-200, 40)
+collision_mask = 0
 destroyable = ExtResource("10_66tyb")
 
 [node name="Grass18" parent="." instance=ExtResource("7_1pmgw")]
 position = Vector2(-216, 56)
+collision_mask = 0
 destroyable = ExtResource("10_66tyb")
 
 [node name="Grass19" parent="." instance=ExtResource("7_1pmgw")]
 position = Vector2(-232, 56)
+collision_mask = 0
 destroyable = ExtResource("10_66tyb")
 
 [node name="Grass20" parent="." instance=ExtResource("7_1pmgw")]
 position = Vector2(-232, 40)
+collision_mask = 0
 destroyable = ExtResource("10_66tyb")
 
 [node name="Grass21" parent="." instance=ExtResource("7_1pmgw")]
 position = Vector2(-328, 24)
+collision_mask = 0
 destroyable = ExtResource("10_66tyb")
 
 [node name="Grass22" parent="." instance=ExtResource("7_1pmgw")]
 position = Vector2(-440, 56)
+collision_mask = 0
 destroyable = ExtResource("10_66tyb")
 
 [node name="Grass25" parent="." instance=ExtResource("7_1pmgw")]
 position = Vector2(-456, 56)
+collision_mask = 0
 destroyable = ExtResource("10_66tyb")
 
 [node name="Grass23" parent="." instance=ExtResource("7_1pmgw")]
 position = Vector2(-440, 40)
+collision_mask = 0
 destroyable = ExtResource("10_66tyb")
 
 [node name="Grass24" parent="." instance=ExtResource("7_1pmgw")]
 position = Vector2(-456, 40)
+collision_mask = 0
 destroyable = ExtResource("10_66tyb")
 
 [node name="Grass11" parent="." instance=ExtResource("7_1pmgw")]
 position = Vector2(-200, 8)
+collision_mask = 0
 destroyable = ExtResource("10_66tyb")
 
 [node name="Grass15" parent="." instance=ExtResource("7_1pmgw")]
 position = Vector2(-216, 24)
+collision_mask = 0
 destroyable = ExtResource("10_66tyb")
 
 [node name="Grass16" parent="." instance=ExtResource("7_1pmgw")]
 position = Vector2(-216, 40)
+collision_mask = 0
 destroyable = ExtResource("10_66tyb")
 
 [node name="Grass17" parent="." instance=ExtResource("7_1pmgw")]
 position = Vector2(-216, 8)
+collision_mask = 0
 destroyable = ExtResource("10_66tyb")
 
 [node name="Grass12" parent="." instance=ExtResource("7_1pmgw")]
 position = Vector2(-56, 40)
+collision_mask = 0
 destroyable = ExtResource("10_66tyb")
 
 [node name="Grass5" parent="." instance=ExtResource("7_1pmgw")]
 position = Vector2(72, 56)
+collision_mask = 0
 destroyable = ExtResource("10_66tyb")
 
 [node name="Grass6" parent="." instance=ExtResource("7_1pmgw")]
 position = Vector2(-8, 40)
+collision_mask = 0
 destroyable = ExtResource("10_66tyb")
 
 [node name="Grass7" parent="." instance=ExtResource("7_1pmgw")]
 position = Vector2(-8, 72)
+collision_mask = 0
 destroyable = ExtResource("10_66tyb")
 
 [node name="Grass8" parent="." instance=ExtResource("7_1pmgw")]
 position = Vector2(-8, 56)
+collision_mask = 0
 destroyable = ExtResource("10_66tyb")
 
 [node name="SpawnPoint" type="Node2D" parent="."]
@@ -340,7 +358,6 @@ script = ExtResource("13_cbwsi")
 
 [node name="EnvironmentArea" type="Area2D" parent="."]
 unique_name_in_owner = true
-visible = false
 collision_layer = 0
 collision_mask = 16
 monitorable = false

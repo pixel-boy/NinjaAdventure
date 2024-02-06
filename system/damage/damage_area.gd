@@ -17,5 +17,10 @@ func _ready() -> void:
 	monitorable = false
 
 
-func on_area_entered(area):
+func on_area_entered(area:Hitbox):
+	if area.team and team:
+		if area.team == team:
+			return
+		if area.team.is_ally(team):
+			return
 	area.take_damage(damage,global_position)

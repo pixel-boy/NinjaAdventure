@@ -1,4 +1,4 @@
-extends Sprite2D
+extends Node2D
 class_name CharacterSprite
 
 
@@ -16,6 +16,15 @@ const ANIMATION_DATA := {
 	Anim.ABILITY:[6],
 	Anim.ABILITY_2:[6],
 }
+
+var resource_character:ResourceCharacter:
+	set(v):
+		resource_character = v
+		if !resource_character:
+			return
+		if !is_inside_tree():
+			await ready
+
 
 var anim:Anim = Anim.IDLE:
 	set(v):
@@ -37,9 +46,12 @@ var current_image:= 0.0:
 		update_animation()
 
 
+@onready var sprite: Sprite2D = $Sprite
+
+
 func update_animation():
-	frame_coords.x = direction_to_frame(direction)
-	frame_coords.y = image_list[floor(current_image)]
+	sprite.frame_coords.x = direction_to_frame(direction)
+	sprite.frame_coords.y = image_list[floor(current_image)]
 
 
 func _process(delta: float) -> void:

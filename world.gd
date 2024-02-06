@@ -47,11 +47,15 @@ func generate_map(map_scene:PackedScene):
 
 func generate_player():
 	if !player:
-		player = preload("res://system/character/character.tscn").instantiate()
-		player.resource_character = player_character
-		player.behavior = player.Behavior.PLAYER
+		player = preload("res://game_system/character/player.tscn").instantiate()
+		player.set_collision_layer_value(5,true)
+		var human_controller := HumanController.new()
+		player.add_child(human_controller)
+		if player_character:
+			player.resource_character = player_character
 		player.teleported.connect(on_player_teleported)
 		player.resource_weapon = stating_weapon
+		player.team = load("res://content/team/player_team.tres")
 		player_ui.resource_life = player.stat.life
 
 

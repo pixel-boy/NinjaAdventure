@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://burgyksamdgfl"
-path="res://.godot/imported/green_samurai.png-1213725031bf7d451d5f3c6356bf946a.ctex"
+uid="uid://cir7t2mluuc7s"
+path="res://.godot/imported/pig.png-66235655e418a297a9913b6659fd9de0.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://content/character/green_samurai.png"
-dest_files=["res://.godot/imported/green_samurai.png-1213725031bf7d451d5f3c6356bf946a.ctex"]
+source_file="res://content/character/pig/pig.png"
+dest_files=["res://.godot/imported/pig.png-66235655e418a297a9913b6659fd9de0.ctex"]
 
 [params]
 

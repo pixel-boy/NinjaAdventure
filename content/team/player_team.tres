@@ -1,9 +1,9 @@
-[gd_resource type="Resource" script_class="ResourceDamageTeam" load_steps=2 format=3 uid="uid://wpegtiysl6uk"]
+[gd_resource type="Resource" script_class="ResourceDamageTeam" load_steps=2 format=3 uid="uid://ujea2b11dl3n"]
 
 [ext_resource type="Script" path="res://system/damage/resource_damage_team.gd" id="1_vutev"]
 
 [resource]
 script = ExtResource("1_vutev")
-ally_team = Array[ExtResource("1_vutev")]([])
-enemy_team = Array[ExtResource("1_vutev")]([])
+team = 1
+ally_team = Array[int]([2])
 friendly_fire = false

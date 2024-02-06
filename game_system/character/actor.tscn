@@ -1,0 +1,53 @@
+[gd_scene load_steps=12 format=3 uid="uid://0bbmh4421wli"]
+
+[ext_resource type="PackedScene" uid="uid://d27msduso2v5i" path="res://game_system/character/character_sprite.tscn" id="1_drsd1"]
+[ext_resource type="Script" path="res://game_system/character/actor.gd" id="1_l3bun"]
+[ext_resource type="Script" path="res://system/damage/hitbox.gd" id="3_iodm5"]
+[ext_resource type="Script" path="res://system/damage/resource_damage_team.gd" id="4_fxifr"]
+[ext_resource type="Material" uid="uid://cbc0e23kmqwml" path="res://system/particle/particle_process_explosion.tres" id="5_sxvrb"]
+[ext_resource type="Texture2D" uid="uid://mq5138bpgc6v" path="res://content/particle/particle_leaf_pink.png" id="6_jqcnf"]
+[ext_resource type="Script" path="res://system/particle/particle.gd" id="7_wthm7"]
+[ext_resource type="Resource" uid="uid://dn4insrhu8kmh" path="res://content/particle/particle_leaf_pink.tres" id="8_ttvp7"]
+
+[sub_resource type="Resource" id="Resource_oqhh2"]
+script = ExtResource("4_fxifr")
+team = 0
+ally_team = Array[int]([])
+friendly_fire = false
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_gputo"]
+radius = 8.06226
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_wif1o"]
+particles_animation = true
+particles_anim_h_frames = 6
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[node name="Actor" type="Node2D"]
+script = ExtResource("1_l3bun")
+
+[node name="Sprite" parent="." instance=ExtResource("1_drsd1")]
+
+[node name="Hitbox" type="Area2D" parent="."]
+collision_layer = 4
+collision_mask = 0
+monitoring = false
+script = ExtResource("3_iodm5")
+team = SubResource("Resource_oqhh2")
+
+[node name="Shape" type="CollisionShape2D" parent="Hitbox"]
+position = Vector2(0, 3)
+shape = SubResource("CircleShape2D_gputo")
+
+[node name="ParticleDamage" type="GPUParticles2D" parent="."]
+material = SubResource("CanvasItemMaterial_wif1o")
+emitting = false
+amount = 4
+process_material = ExtResource("5_sxvrb")
+texture = ExtResource("6_jqcnf")
+lifetime = 0.8
+one_shot = true
+speed_scale = 1.5
+script = ExtResource("7_wthm7")
+resource_particle = ExtResource("8_ttvp7")

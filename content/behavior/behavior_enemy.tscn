@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://lwwiccut3p46"]
+
+[ext_resource type="Script" path="res://system/behavior/behavior_follow.gd" id="1_itg3m"]
+[ext_resource type="Script" path="res://system/behavior/area_target_finder.gd" id="2_0iy8g"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_50wqs"]
+radius = 64.0
+
+[node name="BehaviorEnemy" type="Node2D"]
+script = ExtResource("1_itg3m")
+
+[node name="AreaTargetFinder" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 16
+monitorable = false
+script = ExtResource("2_0iy8g")
+
+[node name="Shape" type="CollisionShape2D" parent="AreaTargetFinder"]
+shape = SubResource("CircleShape2D_50wqs")

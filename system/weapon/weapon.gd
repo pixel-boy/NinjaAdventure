@@ -10,7 +10,6 @@ enum State {BACK,ATTACK,PROJECTED,ON_FLOOR}
 @export var resource_weapon:ResourceWeapon:
 	set(v):
 		resource_weapon = v
-
 		if !is_inside_tree():
 			await ready
 		if !resource_weapon:
@@ -20,8 +19,12 @@ enum State {BACK,ATTACK,PROJECTED,ON_FLOOR}
 		sprite.texture = resource_weapon.sprite_in_hand
 		damage_area.damage = resource_weapon.damage
 		update_weapon()
-@export var team:ResourceDamageTeam
-
+@export var team:ResourceDamageTeam:
+	set(v):
+		team = v
+		if !is_inside_tree():
+			await ready
+		damage_area.team = team
 
 var direction:= Vector2.ZERO:
 	set(v):
