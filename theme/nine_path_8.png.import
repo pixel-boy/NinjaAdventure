@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://xrl0jrqqrwpr"
-path="res://.godot/imported/nine_path_6_16x16.png-de872da93aa5357fc65d897d1333899c.ctex"
+uid="uid://euedl1k12l3d"
+path="res://.godot/imported/nine_path_8.png-b9892a3c28424d18ea992d43b2d50cd0.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://theme/nine_path_6_16x16.png"
-dest_files=["res://.godot/imported/nine_path_6_16x16.png-de872da93aa5357fc65d897d1333899c.ctex"]
+source_file="res://theme/nine_path_8.png"
+dest_files=["res://.godot/imported/nine_path_8.png-b9892a3c28424d18ea992d43b2d50cd0.ctex"]
 
 [params]
 

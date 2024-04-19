@@ -4272,7 +4272,6 @@ texture = ExtResource("4_dtrnm")
 [sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_x038y"]
 resource_name = "Destroyable"
 scenes/1/scene = ExtResource("6_02y58")
-scenes/1/display_placeholder = ExtResource("6_02y58")
 scenes/2/scene = ExtResource("7_5llc0")
 scenes/3/scene = ExtResource("8_aa2g8")
 
