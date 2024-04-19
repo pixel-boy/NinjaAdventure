@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://cw76qbrkm15gy"]
+
+[ext_resource type="PackedScene" uid="uid://skrlnoimlhsv" path="res://system/character/character.tscn" id="1_4xuoi"]
+[ext_resource type="Texture2D" uid="uid://burgyksamdgfl" path="res://content/character/samurai_green/samurai_green.png" id="2_mucfv"]
+
+[node name="SamuraiGreen" instance=ExtResource("1_4xuoi")]
+speed = 90.0
+
+[node name="Sprite" parent="." index="2"]
+texture = ExtResource("2_mucfv")

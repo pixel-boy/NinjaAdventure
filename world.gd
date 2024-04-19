@@ -2,10 +2,8 @@ extends Node2D
 
 
 @export var starting_map:PackedScene
-@export var player_character:ResourceCharacter = preload("res://content/character/blue_ninja/blue_ninja.tres")
 @export var stating_weapon:ResourceWeapon
 
-var player:Character
 var map:Map
 
 @onready var rain: GPUParticles2D = %Rain
@@ -25,12 +23,7 @@ var map:Map
 
 func _ready():
 	generate_map(starting_map)
-	init_map()
 	camera_grid.animation_finished.connect(on_camera_animation_finished)
-
-
-func _process(delta: float) -> void:
-	camera_grid.go_to_world_position(player.global_position)
 
 
 func on_camera_animation_finished():
@@ -45,30 +38,6 @@ func generate_map(map_scene:PackedScene):
 	map.environment_area.environment_changed.connect(apply_environment)
 
 
-func generate_player():
-	if !player:
-		player = preload("res://game_system/character/player.tscn").instantiate()
-		player.set_collision_layer_value(5,true)
-		var human_controller := HumanController.new()
-		player.add_child(human_controller)
-		if player_character:
-			player.resource_character = player_character
-		player.teleported.connect(on_player_teleported)
-		player.resource_weapon = stating_weapon
-		player.team = load("res://content/team/player_team.tres")
-		player_ui.resource_life = player.stat.life
-
-
-func on_player_teleported():
-	camera_grid.set_world_position(player.global_position)
-
-
-func init_map():
-	generate_player()
-	map.add_child(player)
-	player.global_position = map.get_spawn_pos()
-
-
 func apply_environment(resource_environment:ResourceEnvironment):
 	# METEO
 	if !resource_environment:
@@ -79,7 +48,6 @@ func apply_environment(resource_environment:ResourceEnvironment):
 	leaf.emitting = ResourceEnvironment.Meteo.LEAF in resource_environment.meteo_list
 	fog.active = ResourceEnvironment.Meteo.FOG in resource_environment.meteo_list
 	raylight.emitting = ResourceEnvironment.Meteo.RAY in resource_environment.meteo_list
-	
 	# MUSIC
 	if resource_environment.music:
 		music.change_music(resource_environment.music)

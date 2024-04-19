@@ -4,6 +4,10 @@ extends Node2D
 class_name BehaviorFollowPath
 
 
+## A behavior node which can be assigned to a character so that it follows 
+## a path, with different parameters.
+
+
 signal end_reached
 signal point_reached
 signal wait_started

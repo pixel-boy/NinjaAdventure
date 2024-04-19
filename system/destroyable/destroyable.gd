@@ -4,18 +4,7 @@ extends CharacterBody2D
 class_name Destroyable
 
 
-@export var destroyable:ResourceDestroyable:
-	set(v):
-		destroyable = v
-		if !is_inside_tree():
-			await ready
-		name = destroyable.resource_path.get_file().get_slice(".",0).to_pascal_case()
-		sprite.texture = destroyable.texture
-		life = destroyable.life.duplicate(true)
-		particle.resource_particle = destroyable.particle
-		life.killed.connect(destroy)
-
-var life:ResourceLife
+@export var life:ResourceLife
 var push_velocity:= Vector2.ZERO
 
 @onready var sprite: Sprite2D = $Sprite
@@ -25,6 +14,8 @@ var push_velocity:= Vector2.ZERO
 
 func _ready() -> void:
 	hitbox.damage_received.connect(take_damage)
+	life = life.duplicate(true)
+	life.killed.connect(destroy)
 	collision_mask = 0
 
 
@@ -43,7 +34,6 @@ func take_damage(damage:ResourceDamage,damage_pos = Vector2.ZERO):
 
 func push(from,force:int):
 	push_velocity += from.direction_to(global_position)*force
-
 
 
 func damage_fx():

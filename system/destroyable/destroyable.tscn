@@ -1,0 +1,61 @@
+[gd_scene load_steps=12 format=3 uid="uid://b6vodxc0miclw"]
+
+[ext_resource type="Script" path="res://system/destroyable/destroyable.gd" id="1_w1gja"]
+[ext_resource type="Script" path="res://system/stat/life/resource_life.gd" id="2_ogjwx"]
+[ext_resource type="Script" path="res://system/damage/hitbox.gd" id="3_jt54f"]
+[ext_resource type="Texture2D" uid="uid://dgbkuuwc1j8km" path="res://content/particle/particle_rock.png" id="4_af1pe"]
+[ext_resource type="Material" uid="uid://cbc0e23kmqwml" path="res://system/particle/particle_process_explosion.tres" id="4_i466n"]
+[ext_resource type="Script" path="res://system/particle/particle.gd" id="5_tljad"]
+[ext_resource type="Resource" uid="uid://h31w51nsttnc" path="res://content/particle/particle_rock.tres" id="6_ebru0"]
+
+[sub_resource type="Resource" id="Resource_yd1gc"]
+resource_local_to_scene = true
+script = ExtResource("2_ogjwx")
+max_life = 1.0
+life = 1.0
+can_be_damaged_with_no_life = false
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ewf0m"]
+radius = 8.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_nn20x"]
+radius = 12.1655
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_ckqrq"]
+particles_animation = true
+particles_anim_h_frames = 5
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[node name="Destroyable" type="CharacterBody2D"]
+collision_mask = 0
+motion_mode = 1
+script = ExtResource("1_w1gja")
+life = SubResource("Resource_yd1gc")
+
+[node name="Shape" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_ewf0m")
+
+[node name="Sprite" type="Sprite2D" parent="."]
+
+[node name="Hitbox" type="Area2D" parent="."]
+collision_layer = 4
+collision_mask = 0
+monitoring = false
+script = ExtResource("3_jt54f")
+
+[node name="Shape" type="CollisionShape2D" parent="Hitbox"]
+shape = SubResource("CircleShape2D_nn20x")
+
+[node name="Particle" type="GPUParticles2D" parent="."]
+material = SubResource("CanvasItemMaterial_ckqrq")
+position = Vector2(0, -3)
+emitting = false
+process_material = ExtResource("4_i466n")
+texture = ExtResource("4_af1pe")
+lifetime = 0.8
+one_shot = true
+speed_scale = 1.5
+explosiveness = 0.6
+script = ExtResource("5_tljad")
+resource_particle = ExtResource("6_ebru0")

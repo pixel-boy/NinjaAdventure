@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://c02qfp6h5ud5a"]
+
+[ext_resource type="Texture2D" uid="uid://btryd5g3oajow" path="res://content/character/Shadow.png" id="1_obr11"]
+[ext_resource type="Script" path="res://system/character/animal.gd" id="1_tw42a"]
+
+[node name="Animal" type="Node2D"]
+script = ExtResource("1_tw42a")
+
+[node name="Shadow" type="Sprite2D" parent="."]
+position = Vector2(0, 7)
+texture = ExtResource("1_obr11")
+
+[node name="Sprite" type="Sprite2D" parent="."]
+hframes = 2

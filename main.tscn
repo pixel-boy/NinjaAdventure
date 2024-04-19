@@ -4,3 +4,4 @@
 
 [node name="Main" type="Node"]
 script = ExtResource("1_h3qhk")
+starting_menu = 1

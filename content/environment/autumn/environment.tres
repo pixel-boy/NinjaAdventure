@@ -1,11 +1,7 @@
-[gd_resource type="Resource" script_class="ResourceEnvironment" load_steps=4 format=3 uid="uid://dkwnklyceey24"]
+[gd_resource type="Resource" script_class="ResourceEnvironment" load_steps=2 format=3 uid="uid://dkwnklyceey24"]
 
-[ext_resource type="Texture2D" uid="uid://dqprxp7dxnpsi" path="res://content/environment/autumn/gradient.tres" id="1_fjbqs"]
-[ext_resource type="AudioStream" uid="uid://c7vlu3uu47bb5" path="res://content/music/theme_dream.ogg" id="2_m5xq6"]
 [ext_resource type="Script" path="res://system/environment/resource_environment.gd" id="3_uc4sw"]
 
 [resource]
 script = ExtResource("3_uc4sw")
-color_gradient = ExtResource("1_fjbqs")
-music = ExtResource("2_m5xq6")
 meteo_list = Array[int]([3, 4])

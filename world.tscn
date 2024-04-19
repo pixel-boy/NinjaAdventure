@@ -1,7 +1,7 @@
 [gd_scene load_steps=40 format=3 uid="uid://c7j4hgkdbtapk"]
 
 [ext_resource type="Script" path="res://world.gd" id="1_804hp"]
-[ext_resource type="PackedScene" uid="uid://bbypwb55eieo1" path="res://system/map/map.tscn" id="3_fq6wk"]
+[ext_resource type="PackedScene" uid="uid://c83pfkmwxrf3p" path="res://content/map/map_village.tscn" id="2_7kl5b"]
 [ext_resource type="Resource" uid="uid://uditl1ns5wqe" path="res://content/weapon/club/club.tres" id="3_gy5i3"]
 [ext_resource type="Script" path="res://system/camera/camera_grid.gd" id="4_am12t"]
 [ext_resource type="Texture2D" uid="uid://bs4uxpqfesgko" path="res://system/environment/fx/rain.png" id="8_5w8v0"]
@@ -164,7 +164,7 @@ gradient = SubResource("Gradient_kshit")
 
 [node name="World" type="Node2D"]
 script = ExtResource("1_804hp")
-starting_map = ExtResource("3_fq6wk")
+starting_map = ExtResource("2_7kl5b")
 stating_weapon = ExtResource("3_gy5i3")
 
 [node name="Pivot" type="Node2D" parent="."]

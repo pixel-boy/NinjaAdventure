@@ -1,0 +1,35 @@
+[gd_scene load_steps=7 format=3 uid="uid://skrlnoimlhsv"]
+
+[ext_resource type="Script" path="res://system/character/character.gd" id="1_mutlb"]
+[ext_resource type="Script" path="res://system/damage/hitbox.gd" id="2_a7as0"]
+[ext_resource type="Script" path="res://system/damage/resource_damage_team.gd" id="3_05lyq"]
+[ext_resource type="Texture2D" uid="uid://btryd5g3oajow" path="res://content/character/Shadow.png" id="4_7icv6"]
+[ext_resource type="Script" path="res://system/character/sprite_character.gd" id="6_s08pp"]
+
+[sub_resource type="Resource" id="Resource_3y32p"]
+script = ExtResource("3_05lyq")
+team = 0
+ally_team = Array[int]([])
+friendly_fire = false
+
+[node name="Character" type="CharacterBody2D"]
+collision_layer = 2
+collision_mask = 3
+motion_mode = 1
+script = ExtResource("1_mutlb")
+
+[node name="Hitbox" type="Area2D" parent="."]
+collision_layer = 4
+collision_mask = 0
+monitoring = false
+script = ExtResource("2_a7as0")
+team = SubResource("Resource_3y32p")
+
+[node name="Shadow" type="Sprite2D" parent="."]
+texture = ExtResource("4_7icv6")
+
+[node name="Sprite" type="Sprite2D" parent="."]
+offset = Vector2(0, -6)
+hframes = 4
+vframes = 7
+script = ExtResource("6_s08pp")

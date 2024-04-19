@@ -1,0 +1,18 @@
+[gd_scene load_steps=5 format=3 uid="uid://dc2otpemqpad2"]
+
+[ext_resource type="PackedScene" uid="uid://b6vodxc0miclw" path="res://system/destroyable/destroyable.tscn" id="1_lyh5p"]
+[ext_resource type="Script" path="res://system/stat/life/resource_life.gd" id="2_4bvlu"]
+[ext_resource type="Texture2D" uid="uid://ww3ylghfa60s" path="res://content/destroyable/crate.png" id="2_ppnky"]
+
+[sub_resource type="Resource" id="Resource_oivi7"]
+resource_local_to_scene = true
+script = ExtResource("2_4bvlu")
+max_life = 1.0
+life = 1.0
+can_be_damaged_with_no_life = false
+
+[node name="Crate" instance=ExtResource("1_lyh5p")]
+life = SubResource("Resource_oivi7")
+
+[node name="Sprite" parent="." index="1"]
+texture = ExtResource("2_ppnky")

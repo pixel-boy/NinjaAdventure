@@ -1,0 +1,31 @@
+[gd_scene load_steps=8 format=3 uid="uid://dxma3r6xd3454"]
+
+[ext_resource type="PackedScene" uid="uid://b6vodxc0miclw" path="res://system/destroyable/destroyable.tscn" id="1_bsayv"]
+[ext_resource type="Script" path="res://system/stat/life/resource_life.gd" id="2_mv3xy"]
+[ext_resource type="Texture2D" uid="uid://dqwyifoorh3t8" path="res://content/destroyable/pot.png" id="3_x688q"]
+[ext_resource type="Texture2D" uid="uid://b4xd2vlppyawo" path="res://content/particle/particle_pot.png" id="4_4bsrr"]
+[ext_resource type="Resource" uid="uid://cwqdt1vxig3wi" path="res://content/particle/particle_pot.tres" id="5_b8dec"]
+
+[sub_resource type="Resource" id="Resource_r35w6"]
+resource_local_to_scene = true
+script = ExtResource("2_mv3xy")
+max_life = 1.0
+life = 1.0
+can_be_damaged_with_no_life = false
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_loub4"]
+particles_animation = true
+particles_anim_h_frames = 6
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[node name="Pot" instance=ExtResource("1_bsayv")]
+life = SubResource("Resource_r35w6")
+
+[node name="Sprite" parent="." index="1"]
+texture = ExtResource("3_x688q")
+
+[node name="Particle" parent="." index="3"]
+material = SubResource("CanvasItemMaterial_loub4")
+texture = ExtResource("4_4bsrr")
+resource_particle = ExtResource("5_b8dec")

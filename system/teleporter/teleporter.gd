@@ -3,6 +3,9 @@
 extends Area2D
 class_name Teleporter
 
+
+const MASK_PLAYER = 5
+
 @export var target:Teleporter:
 	set(v):
 		if v == target:
@@ -27,6 +30,9 @@ class_name Teleporter
 var arrow_direction:Sprite2D
 
 func _ready() -> void:
+	collision_layer = 0
+	collision_mask = 0
+	set_collision_mask_value(MASK_PLAYER,true)
 	body_entered.connect(on_player_entered)
 	update_arrow_direction()
 

@@ -1,10 +1,13 @@
-[gd_resource type="TileSet" load_steps=11 format=3 uid="uid://tir0rfjtiwma"]
+[gd_resource type="TileSet" load_steps=15 format=3 uid="uid://tir0rfjtiwma"]
 
 [ext_resource type="Texture2D" uid="uid://blisphvmuiydg" path="res://content/map/tileset_village_abandoned.png" id="1_whwpt"]
 [ext_resource type="Texture2D" uid="uid://cfa7eykkf3o07" path="res://content/map/tileset_floor.png" id="2_tswpv"]
 [ext_resource type="Texture2D" uid="uid://dga8b4mbpf0ch" path="res://content/map/tileset_interior_floor.png" id="3_0t6wa"]
 [ext_resource type="Texture2D" uid="uid://dseocn2by32rs" path="res://content/map/tileset_wall_simple.png" id="4_dtrnm"]
 [ext_resource type="Texture2D" uid="uid://44k1t5e1t2uo" path="res://content/map/tileset_animated.png" id="4_tkv0l"]
+[ext_resource type="PackedScene" uid="uid://dc2otpemqpad2" path="res://content/destroyable/crate.tscn" id="6_02y58"]
+[ext_resource type="PackedScene" uid="uid://domrx1cgi35kg" path="res://content/destroyable/grass.tscn" id="7_5llc0"]
+[ext_resource type="PackedScene" uid="uid://dxma3r6xd3454" path="res://content/destroyable/pot.tscn" id="8_aa2g8"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_j5tek"]
 texture = ExtResource("1_whwpt")
@@ -4266,6 +4269,14 @@ texture = ExtResource("4_dtrnm")
 9:10/0/physics_layer_0/angular_velocity = 0.0
 9:10/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 
+[sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_x038y"]
+resource_name = "Destroyable"
+scenes/1/scene = ExtResource("6_02y58")
+scenes/1/display_placeholder = ExtResource("6_02y58")
+scenes/2/scene = ExtResource("7_5llc0")
+scenes/2/display_placeholder = ExtResource("7_5llc0")
+scenes/3/scene = ExtResource("8_aa2g8")
+
 [resource]
 physics_layer_0/collision_layer = 1
 physics_layer_0/collision_mask = 0
@@ -4279,3 +4290,4 @@ sources/1 = SubResource("TileSetAtlasSource_x17xn")
 sources/2 = SubResource("TileSetAtlasSource_aeovt")
 sources/4 = SubResource("TileSetAtlasSource_tilta")
 sources/3 = SubResource("TileSetAtlasSource_bvx6d")
+sources/5 = SubResource("TileSetScenesCollectionSource_x038y")

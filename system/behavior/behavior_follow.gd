@@ -3,6 +3,10 @@ extends Node2D
 class_name BehaviorFollow
 
 
+## A behavior node which can be add to a character so that it follows 
+## a target, with minimum and maximum distance parameters.
+
+
 @export var active := true:
 	set(v):
 		active = v
@@ -14,6 +18,7 @@ class_name BehaviorFollow
 		target = v
 		if !target:
 			target_pos = start_pos
+		target.teleported.connect(on_target_teleported)
 		update_process()
 @export var min_dist := 8
 @export var max_dist := 24
@@ -27,6 +32,11 @@ func _ready() -> void:
 	parent = get_parent()
 	update_process()
 	start_pos = global_position
+
+
+func on_target_teleported():
+	parent.global_position = target.global_position
+	parent.teleported.emit()
 
 
 func _process(delta: float) -> void:

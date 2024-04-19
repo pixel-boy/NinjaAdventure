@@ -22,10 +22,24 @@ signal animation_finished
 @export var transition_time:= 0.8
 
 var tween:Tween
+var target:Node2D:
+	set(v):
+		target = v
+		set_process(target != null)
 
 
 func _ready() -> void:
+	add_to_group("camera")
 	current_cell = world_to_grid(global_position)
+	set_process(false)
+
+
+func _process(delta: float) -> void:
+	if Engine.is_editor_hint():
+		return
+	if !target:
+		set_process(false)
+	go_to_world_position(target.global_position)
 
 
 func get_world_position()->Vector2:
@@ -52,6 +66,12 @@ func go_to_cell(cell_target:Vector2):
 func set_world_position(world_pos:Vector2):
 	current_cell = world_to_grid(world_pos)
 	center_to_cell()
+
+
+func teleport_to(target_position:Vector2):
+	if tween:
+		tween.kill()
+	global_position = target_position
 
 
 func world_to_grid(pos:Vector2) -> Vector2:

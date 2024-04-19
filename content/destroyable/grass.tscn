@@ -1,0 +1,31 @@
+[gd_scene load_steps=8 format=3 uid="uid://domrx1cgi35kg"]
+
+[ext_resource type="PackedScene" uid="uid://b6vodxc0miclw" path="res://system/destroyable/destroyable.tscn" id="1_qgvs5"]
+[ext_resource type="Script" path="res://system/stat/life/resource_life.gd" id="2_pc4ci"]
+[ext_resource type="Texture2D" uid="uid://bi6x2xy0kcgn7" path="res://content/destroyable/grass.png" id="2_pwuk7"]
+[ext_resource type="Texture2D" uid="uid://b24nod8p5n05l" path="res://content/particle/particle_grass.png" id="3_ft43a"]
+[ext_resource type="Resource" uid="uid://pd5lt0y7jxun" path="res://content/particle/particle_grass.tres" id="4_4pjrf"]
+
+[sub_resource type="Resource" id="Resource_cp2u7"]
+resource_local_to_scene = true
+script = ExtResource("2_pc4ci")
+max_life = 1.0
+life = 1.0
+can_be_damaged_with_no_life = false
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_4s7f8"]
+particles_animation = true
+particles_anim_h_frames = 6
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[node name="Grass" instance=ExtResource("1_qgvs5")]
+life = SubResource("Resource_cp2u7")
+
+[node name="Sprite" parent="." index="1"]
+texture = ExtResource("2_pwuk7")
+
+[node name="Particle" parent="." index="3"]
+material = SubResource("CanvasItemMaterial_4s7f8")
+texture = ExtResource("3_ft43a")
+resource_particle = ExtResource("4_4pjrf")

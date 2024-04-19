@@ -1,8 +1,0 @@
-[gd_resource type="Resource" script_class="ResourceAnimal" load_steps=3 format=3 uid="uid://dgvyssgjo6c1c"]
-
-[ext_resource type="Script" path="res://game_system/character/resource_animal.gd" id="1_455kr"]
-[ext_resource type="Texture2D" uid="uid://cir7t2mluuc7s" path="res://content/character/pig/pig.png" id="2_cyx6v"]
-
-[resource]
-script = ExtResource("1_455kr")
-sprite = ExtResource("2_cyx6v")

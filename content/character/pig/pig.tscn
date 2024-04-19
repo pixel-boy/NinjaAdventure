@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://dvnv45u7vj35n"]
+
+[ext_resource type="PackedScene" uid="uid://c02qfp6h5ud5a" path="res://system/character/animal.tscn" id="1_xt1ub"]
+[ext_resource type="Texture2D" uid="uid://cir7t2mluuc7s" path="res://content/character/pig/pig.png" id="2_wo3q8"]
+
+[node name="Pig" instance=ExtResource("1_xt1ub")]
+
+[node name="Shadow" parent="." index="0"]
+position = Vector2(0, 0)
+
+[node name="Sprite" parent="." index="1"]
+texture = ExtResource("2_wo3q8")
+offset = Vector2(0, -5)
