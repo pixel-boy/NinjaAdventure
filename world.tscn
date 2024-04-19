@@ -178,6 +178,7 @@ offset_left = -456.0
 offset_top = -247.0
 offset_right = 504.0
 offset_bottom = 281.0
+mouse_filter = 2
 texture = ExtResource("16_wcll6")
 stretch_mode = 1
 script = ExtResource("11_w52t8")
@@ -274,6 +275,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 color = Color(0.0784314, 0.105882, 0.105882, 1)
 script = ExtResource("20_5rxny")
 

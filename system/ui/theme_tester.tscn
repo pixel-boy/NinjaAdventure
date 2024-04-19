@@ -1,0 +1,159 @@
+[gd_scene load_steps=2 format=3 uid="uid://cvaddpu4odleb"]
+
+[ext_resource type="Theme" uid="uid://dx4r0mviklhsx" path="res://theme/theme_1/theme_1.tres" id="1_2k4c6"]
+
+[node name="ThemeTester" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme = ExtResource("1_2k4c6")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
+offset_right = 358.0
+offset_bottom = 202.0
+color = Color(0.407843, 0.396078, 0.341176, 1)
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 0
+offset_left = 7.0
+offset_top = 4.0
+offset_right = 165.0
+offset_bottom = 107.0
+
+[node name="TextEdit" type="PanelContainer" parent="Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 9.0
+offset_top = 9.0
+offset_right = -9.0
+offset_bottom = -9.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="LabelTitle" type="Label" parent="Panel"]
+layout_mode = 0
+offset_left = 1.0
+offset_top = 12.0
+offset_right = 157.0
+offset_bottom = 24.0
+text = "PAUSED"
+horizontal_alignment = 1
+
+[node name="ButtonResume" type="Button" parent="Panel"]
+layout_mode = 0
+offset_left = 48.0
+offset_top = 28.0
+offset_right = 112.0
+offset_bottom = 46.0
+text = "Resume"
+
+[node name="ButtonOptions" type="Button" parent="Panel"]
+auto_translate_mode = 1
+layout_mode = 0
+offset_left = 48.0
+offset_top = 48.0
+offset_right = 112.0
+offset_bottom = 66.0
+toggle_mode = true
+text = "Options"
+
+[node name="ButtonQuit" type="Button" parent="Panel"]
+auto_translate_mode = 1
+layout_mode = 0
+offset_left = 48.0
+offset_top = 68.0
+offset_right = 112.0
+offset_bottom = 86.0
+disabled = true
+text = "Quit"
+
+[node name="ItemList" type="ItemList" parent="."]
+layout_mode = 0
+offset_left = 7.0
+offset_top = 111.0
+offset_right = 106.0
+offset_bottom = 176.0
+item_count = 6
+item_0/text = "Shuriken"
+item_1/text = "Kunai"
+item_2/text = "Potion"
+item_3/text = "Herb"
+item_4/text = "Bottle"
+item_5/text = "Arrow"
+
+[node name="TextEdit" type="TextEdit" parent="."]
+layout_mode = 0
+offset_left = 110.0
+offset_top = 111.0
+offset_right = 214.0
+offset_bottom = 175.0
+
+[node name="LineEdit" type="LineEdit" parent="."]
+layout_mode = 0
+offset_left = 216.0
+offset_top = 150.0
+offset_right = 313.0
+offset_bottom = 175.0
+
+[node name="HSlider" type="HSlider" parent="."]
+layout_mode = 0
+offset_left = 173.0
+offset_top = 7.0
+offset_right = 302.0
+offset_bottom = 18.0
+
+[node name="VSlider" type="VSlider" parent="."]
+layout_mode = 0
+offset_left = 175.0
+offset_top = 24.0
+offset_right = 191.0
+offset_bottom = 104.0
+
+[node name="HScrollBar" type="HScrollBar" parent="."]
+layout_mode = 0
+offset_left = 207.0
+offset_top = 23.0
+offset_right = 300.0
+offset_bottom = 31.0
+
+[node name="VScrollBar" type="VScrollBar" parent="."]
+layout_mode = 0
+offset_left = 192.0
+offset_top = 24.0
+offset_right = 201.0
+offset_bottom = 104.0
+
+[node name="CheckBox" type="CheckBox" parent="."]
+layout_mode = 0
+offset_left = 210.0
+offset_top = 36.0
+offset_right = 292.0
+offset_bottom = 58.0
+button_pressed = true
+text = "Checkbox"
+
+[node name="CheckBox2" type="CheckBox" parent="."]
+auto_translate_mode = 1
+layout_mode = 0
+offset_left = 210.0
+offset_top = 64.0
+offset_right = 292.0
+offset_bottom = 87.0
+disabled = true
+button_pressed = true
+text = "Disabled"
+
+[node name="ProgressBar" type="ProgressBar" parent="."]
+layout_mode = 0
+offset_left = 216.0
+offset_top = 127.0
+offset_right = 312.0
+offset_bottom = 148.0
+value = 50.0

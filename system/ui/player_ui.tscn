@@ -9,6 +9,7 @@ layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
+mouse_filter = 2
 script = ExtResource("1_ky034")
 
 [node name="ReceptacleBar" type="Control" parent="."]
@@ -20,6 +21,7 @@ offset_left = 3.0
 offset_top = 3.0
 offset_right = 51.0
 offset_bottom = 19.0
+mouse_filter = 2
 script = ExtResource("2_63s4t")
 max_life = 12
 life = 12
